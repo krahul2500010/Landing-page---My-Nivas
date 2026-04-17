@@ -126,10 +126,10 @@ if (heroImage) {
 
         // Atmospheric Echo Parallax - REMOVED for Quiet Authority
         
-        // Quiet Authority Reveal
-        document.querySelectorAll('.scroll-reveal-line, .scroll-reveal-whisper').forEach((el) => {
+        // Quiet Authority / Modernist Reveal
+        document.querySelectorAll('.scroll-reveal-line, .scroll-reveal-whisper, .scroll-reveal-tension').forEach((el) => {
             const rect = el.getBoundingClientRect();
-            if (rect.top <= window.innerHeight * 0.8) {
+            if (rect.top <= window.innerHeight * 0.9) {
                 el.classList.add('active');
             }
         });
