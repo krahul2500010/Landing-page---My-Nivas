@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-base-cream: #FBF8F1;
+  --color-base-charcoal: #1A1A1A;
+  --color-base-rust: #A0522D;
+  --color-base-slate: #2C3E50;
+  
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --animate-drift: drift 10s ease-in-out infinite alternate;
+  --animate-fade-up: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes drift {
+    from { transform: translateX(-10px); }
+    to { transform: translateX(10px); }
+  }
+
+  @keyframes fadeUp {
+    0% { transform: translateY(40px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply antialiased;
+  }
+
+  body {
+    @apply font-sans bg-base-cream text-base-charcoal leading-relaxed selection:bg-base-rust/20;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif font-light tracking-tight italic;
+  }
+}
+
+@layer components {
+  /* Architectural Buttons */
+  .btn-arch {
+    @apply px-12 py-5 bg-base-charcoal text-base-cream font-bold rounded-none hover:bg-base-rust transition-all duration-500 uppercase tracking-[0.2em] text-[10px];
+  }
+  
+  .btn-outline-arch {
+    @apply px-12 py-5 border border-base-charcoal text-base-charcoal font-bold rounded-none hover:bg-base-charcoal hover:text-base-cream transition-all duration-500 uppercase tracking-[0.2em] text-[10px];
+  }
+
+  /* Asymmetrical Editorial Card */
+  .editorial-card {
+    @apply p-12 bg-white shadow-[20px_20px_0px_#1A1A1A05] border border-base-charcoal/5 transition-all duration-700 hover:shadow-[30px_30px_0px_#A0522D10];
+  }
+
+  .section-container {
+    @apply max-w-[1400px] mx-auto px-8 py-32;
+  }
+
+  /* Horizontal Narrative System */
+  .horizontal-scroll-container {
+    @apply relative h-[400vh]; /* Providing vertical scroll space for the horizontal movement */
+  }
+
+  .sticky-viewport {
+    @apply sticky top-0 h-screen w-full overflow-hidden flex items-center bg-base-charcoal;
+  }
+
+  .horizontal-track {
+    @apply flex h-full will-change-transform;
+  }
+
+  .horizontal-slide {
+    @apply relative min-w-screen h-full flex flex-col justify-center px-40 flex-shrink-0;
+  }
+
+  .progress-bar-container {
+    @apply absolute bottom-20 left-40 right-40 h-[1px] bg-white/10 z-20;
+  }
+
+  .progress-bar-fill {
+    @apply absolute top-0 left-0 h-full bg-base-rust transition-all duration-300 ease-out;
+  }
+
+  /* Texture Overlay */
+  .grain-overlay {
+    @apply fixed inset-0 pointer-events-none opacity-[0.03] -z-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')];
+  }
+}
+
+/* Typography Extensions */
+.display-title {
+  @apply text-7xl lg:text-[140px] font-serif leading-[0.85] tracking-tighter;
+}
+
+.label-bold {
+  @apply font-sans font-black uppercase tracking-[0.4em] text-[10px] text-base-rust;
+}
+
+.asym-grid-item {
+  @apply relative md:odd:-translate-y-8 md:even:translate-y-8;
+}
