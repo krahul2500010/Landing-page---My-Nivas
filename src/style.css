@@ -82,6 +82,32 @@
     @apply absolute top-0 left-0 h-full bg-base-rust transition-all duration-300 ease-out;
   }
 
+  /* Testimonial Sanctuary (Quiet Authority) */
+  .testimonial-sanctuary {
+    @apply relative py-60 px-8 flex flex-col items-center justify-center bg-base-cream text-center;
+  }
+
+  .zen-line {
+    @apply w-[1px] bg-base-rust/30 transition-all duration-[2000ms] ease-out;
+    height: 0;
+  }
+
+  .zen-line.active {
+    height: 120px;
+  }
+
+  .whisper-text {
+    @apply opacity-0 translate-y-4 transition-all duration-[1500ms] ease-out;
+  }
+
+  .whisper-text.active {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .intimate-quote {
+    @apply text-3xl lg:text-4xl font-serif italic leading-relaxed max-w-2xl mx-auto text-base-charcoal;
+  }
+
   /* Texture Overlay */
   .grain-overlay {
     @apply fixed inset-0 pointer-events-none opacity-[0.03] -z-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')];

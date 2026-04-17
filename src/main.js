@@ -123,5 +123,15 @@ if (heroImage) {
                 }
             }
         }
+
+        // Atmospheric Echo Parallax - REMOVED for Quiet Authority
+        
+        // Quiet Authority Reveal
+        document.querySelectorAll('.scroll-reveal-line, .scroll-reveal-whisper').forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.8) {
+                el.classList.add('active');
+            }
+        });
     });
 }
